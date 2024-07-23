@@ -1,0 +1,13 @@
+def solution(nums):
+    len_num = len(nums)
+    type_list = list(set(nums))
+    
+    if len(type_list) >= int(len_num/2):
+        return int(len_num/2)
+    else:
+        return len(type_list)
+
+
+#########Best
+def solution(ls):
+    return min(len(ls)/2, len(set(ls)))
