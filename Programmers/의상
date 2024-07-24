@@ -1,0 +1,11 @@
+def solution(clothes):
+    cloth_dict = dict()
+    answer = 1
+    for i in clothes:
+        cloth_dict[i[1]]  = 1
+    for i in clothes:
+        cloth_dict[i[1]]  += 1
+    
+    for i in cloth_dict.keys():
+        answer *= cloth_dict[i]
+    return answer - 1
