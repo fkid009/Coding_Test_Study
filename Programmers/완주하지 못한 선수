@@ -1,0 +1,26 @@
+from collections import Counter
+
+# def solution(participant, completion):
+#     if len(set(participant) - set(completion)) != 0:    
+#         return (set(participant) - set(completion)).pop()
+#     else:
+#         for i in completion:
+#             participant.remove(i)
+#         return participant[0
+
+def solution(participant, completion):
+    participant_dict = Counter(participant)
+    completion_dict = Counter(completion)
+    for i in completion_dict.keys():
+        participant_dict[i] -= completion_dict[i]
+        if participant_dict[i] == 0:
+            participant_dict.pop(i)
+    return list(participant_dict.keys())[0]
+
+#######Best
+import collections
+
+
+def solution(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
