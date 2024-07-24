@@ -1,0 +1,14 @@
+def solution(phone_book): # 효율성 통과x
+    num = 0
+    answer = True
+    while answer == True and num <= len(phone_book) - 1:
+        for i in range(num+1, len(phone_book)):
+            v1 = list(str(phone_book[num]))
+            v2 = list(str(phone_book[i]))
+            min_text_len = min(len(v1), len(v2))
+            if v1[:min_text_len] == v2[:min_text_len]:
+                answer = False
+        num += 1
+
+            
+    return answer
