@@ -1,0 +1,18 @@
+def solution(progresses, speeds):
+    answer = []
+    done_date = [round((100 - x) // y) for x, y in zip(progresses, speeds)]
+    done_date.append(101)
+    chk, num = 1, done_date[0]
+    for i in range(len(done_date) - 1):
+        now, next = done_date[i], done_date[i + 1]
+        if now < next and next >= num:
+            answer.append(chk)
+            chk  = 1
+            num = next
+        elif chk < next and next <= num:
+            chk += 1
+        elif now > next:
+            chk += 1
+        elif now == next:
+            chk += 1
+    return answer
