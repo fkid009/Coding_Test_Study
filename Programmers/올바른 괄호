@@ -1,0 +1,14 @@
+def solution(s):
+    if len(list(s)) % 2 == 0:
+        result_list = [list(s)[0]]
+        for i in list(s)[1:]:
+            if i == ")" and result_list[-1] == "(":
+                result_list.pop()
+            else:
+                result_list.append(i)
+        if len(result_list) == 0:
+            return True
+        else:
+            return False
+    else:
+        return False
